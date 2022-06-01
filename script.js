@@ -10,6 +10,10 @@ if (numeroIngresado <= 1000) {
 }
 
 //  pedir un texto mediante prompt y si es igual a "hola" mostrar un alerta o consola
+let string1 = prompt("ingresar texto")
 
-// pedir un  numero por pormpt y evaluar si esta entre 10 y 50. si en caso positivo, mostrar un alert. 
-
+if (string1 === "hola") {
+    alert ("Hola amigo!")
+} else {
+    alert("Quien eres?")
+}
