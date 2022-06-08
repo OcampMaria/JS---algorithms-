@@ -47,7 +47,7 @@ const savingsToAdd = () => {
     console.log("savingsToAdd function " + savings)
 
     for (var i in savings) {
-        totalSavings -= savings[i];
+        totalSavings += savings[i];
     }
     console.log("savingsToAdd function " + totalSavings);
     return totalSavings;
@@ -57,8 +57,14 @@ totalSavings = savingsToAdd(savings, totalSavings);
 console.log("totalSavings var : " + totalSavings)
 
 
-console.log( "final" + totalEarnings - totalSavings)
+function restar(a, b) {
+  return a - b
+}
 
+let resultado = restar(totalEarnings, totalSavings)
+
+
+console.log(resultado)
 
 // amountToAdd()
 // savingsToAdd()
