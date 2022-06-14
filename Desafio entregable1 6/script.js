@@ -10,6 +10,8 @@
 // ** incorpora algoritmo condicional (si <condicion>, entonces <operacion>)y algoritmo con ciclo (for while y do...while). utilizar funciones para realizar operaciones.
 
 // Cuenta de Savings simulador interactivo.
+
+// Arrays Earnings and Savings 
 let earnings = [];
 let savings = [];
 let totalEarnings = 0;
