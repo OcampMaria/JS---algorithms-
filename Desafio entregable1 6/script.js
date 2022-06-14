@@ -90,9 +90,9 @@ const bienvenido = () => {
 };
 //
 
-let welcome = Prompt ("Welcome! Do you want to see your earnings and savings?")
+let welcome = prompt ("Welcome! Do you want to see your earnings and savings?")
 
-const Start = (e) => {
+const start = (e) => {
   if (welcome != "ESC") {
     bienvenido();
   } else {
@@ -100,4 +100,4 @@ const Start = (e) => {
   }
 }
 
-Start()
+start()
