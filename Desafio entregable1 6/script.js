@@ -21,6 +21,7 @@ const amountToAdd = () => {
   for (let i = 1; i <= 5; i++) {
     earnings.push(prompt("Add amount #" + i));
 
+    // map creates a new array. Number adds the number only
     earnings = earnings.map(Number);
   }
   console.log("amountToAdd function " + earnings);
@@ -61,10 +62,13 @@ console.log(resultado);
 
 // crear variable earning, crear variable savings, preguntar cuanto es el total, pregutnar cuanto quiere meter a savigns, restar el savigns del total. subir el total a earnings y subir el savings amount to savings variable.
 
-// Hola! bienvenido a su cuenta de saldo. Para comenzar precione "ESC";
-const bienvenido = () => {
 
+
+// Hola! bienvenido a su cuenta de saldo. Para comenzar precione "ESC";
+
+const bienvenido = () => {
   let entrada = prompt("Hola! bienvenido a su cuenta de saldo. Cual es tu nombre?");
+
   //Repetimos con While hasta que el usuario ingresa "ESC"
   while (entrada != "ESC") {
   
@@ -73,6 +77,8 @@ const bienvenido = () => {
 
     totalSavings = savingsToAdd(savings, totalSavings);
     console.log("totalSavings var : " + totalSavings);
+
+    
 
     alert(`Your total Earnings : ${totalEarnings}` );
     alert(`Your total Savings : ${totalSavings}`);
@@ -83,4 +89,15 @@ const bienvenido = () => {
   }
 };
 //
-bienvenido();
+
+let welcome = Prompt ("Welcome! Do you want to see your earnings and savings?")
+
+const Start = (e) => {
+  if (welcome != "ESC") {
+    bienvenido();
+  } else {
+   alert("Good Bye!")
+  }
+}
+
+Start()
