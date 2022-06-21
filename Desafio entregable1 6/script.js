@@ -10,8 +10,6 @@
 // ** incorpora algoritmo condicional (si <condicion>, entonces <operacion>)y algoritmo con ciclo (for while y do...while). utilizar funciones para realizar operaciones.
 
 // Cuenta de Savings simulador interactivo.
-
-// Arrays Earnings and Savings 
 let earnings = [];
 let savings = [];
 let totalEarnings = 0;
@@ -92,9 +90,9 @@ const bienvenido = () => {
 };
 //
 
-let welcome = prompt ("Welcome! Do you want to see your earnings and savings?")
+let welcome = Prompt ("Welcome! Do you want to see your earnings and savings?")
 
-const start = (e) => {
+const Start = (e) => {
   if (welcome != "ESC") {
     bienvenido();
   } else {
@@ -102,4 +100,4 @@ const start = (e) => {
   }
 }
 
-start()
+Start()
