@@ -1,0 +1,24 @@
+
+html, body {
+    font-family: poppins, serif;
+    color: black;
+    background-color: #83A6BA 
+}
+
+.navbar{
+    background-color: #3390AD;
+}
+
+.logo{
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.logo-gold {
+    color: #FFF3B7;
+}
+
+.navbar-burger{
+    color: white;
+}
