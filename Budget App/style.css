@@ -1,24 +1,46 @@
-
-html, body {
-    font-family: poppins, serif;
-    color: black;
-    background-color: #83A6BA 
+html,
+body {
+  font-family: poppins, serif;
+  color: black;
+  background-color: #83a6ba;
 }
 
-.navbar{
-    background-color: #3390AD;
+.navbar {
+  background-color: #3390ad;
 }
 
-.logo{
-    color: white;
-    font-size: 30px;
-    font-weight: 600;
+.logo,
+h1 {
+  color: white;
+  font-size: 30px;
+  font-weight: 600;
 }
 
 .logo-gold {
-    color: #FFF3B7;
+  color: #fff3b7;
 }
 
-.navbar-burger{
-    color: white;
+.navbar-burger {
+  color: white;
+}
+
+.button-nav {
+  background-color: #ffffff00;
+  border-width: 0px;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.button-nav:hover {
+  color: #fff3b7;
+}
+
+
+  
+
+form {
+  background-color: white;
+  margin: 2rem;
+  border-radius: 1rem;
 }
