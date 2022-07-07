@@ -8,6 +8,8 @@ let savings = [];
 let totalEarnings = 0;
 let totalSavings = 0;
 
+
+
 const amountToAdd = () => {
   for (let i = 1; i <= 5; i++) {
     earnings.push(prompt("Add amount #" + i));
@@ -71,17 +73,6 @@ const bienvenido = () => {
     break;
   }
 };
-//
-
-// let welcome = prompt("Welcome! Do you want to see your earnings and savings?");
-
-// const start = (e) => {
-//   if (welcome != "ESC") {
-//     bienvenido();
-//   } else {
-//     alert("Good Bye!");
-//   }
-// };
 
 
 
@@ -92,12 +83,9 @@ const bienvenido = () => {
 //usar indexOf() para devolver lista de todas las entradas que hemos hecho.
 //necesito un botton para comenzar y otro para ver lista de savings and otra para lista de savings realizados. Page 35 under arrqays
 
-//  método de filtrado o búsqueda sobre el array. También la utilización de objetos,
 const btn1 = document.querySelector('#btn1')
 const btn2 = document.querySelector('#btn2')
 const simulador = document.getElementById('simulador')
-
-
 
 
 btn1.addEventListener('click', (e) => {
@@ -117,8 +105,6 @@ savings.forEach((saving) => {
 
   simulador.append(div);
 });
-  // console.log(event.target)
-  // console.log("Botón clickeado")
-})
 
+})
 
