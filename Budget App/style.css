@@ -16,6 +16,12 @@ h1 {
   font-weight: 600;
 }
 
+.subtitles-h2{
+    color: #3390ad;
+    font-size: 25px;
+    font-weight: 600;
+}
+
 .logo-gold {
   color: #fff3b7;
 }
@@ -43,4 +49,14 @@ form {
   background-color: white;
   margin: 2rem;
   border-radius: 1rem;
+}
+
+
+.summary{
+    background-color:white;
+    border-radius: 5px;
+}
+
+div{
+    padding:10px;
 }
