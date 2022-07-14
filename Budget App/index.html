@@ -1,83 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
     <title>BSave Budget App</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <!-- Navbar -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="./index.html">
-                <h1 class="logo">
-                    B<span class="logo-gold">Save</span> 
-                </h1>
-            </a>
+      <div class="navbar-brand">
+        <a class="navbar-item" href="./index.html">
+          <h1 class="logo">B<span class="logo-gold">Save</span></h1>
+        </a>
 
-            <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
 
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button button-nav" href="./signup.html">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button  button-nav ">
-                            Log in
-                        </a>
-                    </div>
-                </div>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button button-nav" href="./signup.html">
+                <strong>Sign up</strong>
+              </a>
+              <a class="button button-nav"> Log in </a>
             </div>
+          </div>
         </div>
+      </div>
     </nav>
-    <!-- End Navbar -->
+    <!-- End Navbar / start Summary Section -->
 
-    <div class="budget-section section">
-        <div class="column is-two-fifths summary">
-
-            <h2 class="subtitles-h2">Summary</h2>
+    <section class=" section columns budget-section section">
+      <div class="column is-two-fifths summary">
+        <h2 class="subtitles-h2">Summary</h2>
 
         <div class="budget col col-md col-sm">
-            <h2>Budget</h2>
-            <p class="amount">$ <span id="budgetAmount">0</span></p>
+          <h2>Budget</h2>
+          <p class="amount">$ <span id="budgetAmount">0</span></p>
         </div>
 
-        <div class="expenses col col-md col-sm">
-            <h2>expenses</h2>
-            <p class="exp-amount">$ <span id="expensesAmount">0</span></p>
+        <div id="expense" class="expenses col col-md col-sm">
+          <h2>Total Expenses:</h2>
+          <p class="exp-amount">$ <span id="expensesAmount">0</span></p>
         </div>
 
         <div class="balance col col-md col-sm">
-            <h2>balance</h2>
-            <p class="amount bala">$ <span id="balanceAmount">0</span></p>
+          <h2>balance</h2>
+          <p class="amount bala">$ <span id="balanceAmount">0</span></p>
         </div>
+      </div>
 
-        <div class="budget-form" id="budgetform">
-            <form id="addForm">
-                <label for=""> Make a budget</label> <br />
-                <input type="number" id="number" /> <br />
-                <button type="submit">Add Budget</button>
-            </form>
+      <!-- ends summary section / starts budget inputForm -->
+
+      <div class="column budget-form" id="budgetform">
+        <form id="addForm">
+          <label for=""> Make a budget</label> <br />
+          <input type="number" id="number" /> <br />
+          <button type="submit">Add Budget</button>
+        </form>
+      </div>
+      <!-- ends inputForm / starts expenses form -->
+      <div class="column expense-form" id="expense-form">
+        <form action="" id="expForm">
+          <div class="">
+            <label for="">please enter your expense</label> <br />
+            <input type="text" id="expName" />
+          </div>
+
+          <div class="">
+            <label for="">please enter expense amount</label> <br />
+            <input type="number" id="expNumber" />
+          </div>
+
+          <button type="submit" id="submitExpen">Add expense</button>
+        </form>
+      </div>
+    </section>
+    <section class="section columns list-section">
+        <div class="column" id="simulador">
         </div>
-    </div>
+    </section>
 
-    </div>
+
+    <div class="edit-form" id="editForm">
+        <form action="" id="saveEdit">
+           <div class="">
+               <label for="">Edit your expense</label> <br />
+               <input type="text" id="editExpName" />
+           </div>
+           <div class="">
+               <label for="">Edit expense amount</label> <br />
+               <input type="number" id="editExpNumber" />
+           </div>
+           <button type="submit">Save changes</button>
+        </form>
+     </div>
+    
 
     <script src="./script.js"></script>
-</body>
-
+  </body>
 </html>
