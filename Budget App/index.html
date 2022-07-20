@@ -113,12 +113,56 @@
 
 
 
+
+
+
+      <!-- aside for the form input search city -->
+    <section>
+        <aside class="Input is-pulled-left">
+            <p class="title">Search for a City</p>
+            <div class="field has-addons flex">
+              <div class="control">
+                <input name="city" id="inputCity" class="input inputCity" type="text" placeholder="City Name">
+                <span id="error"></span>
+              </div>
+              <div class="control">
+                <a class="button is-info" id="search">
+                  <i class="fa fa-search"></i>
+                </a>
+              </div>
+            </div>
+            <div class="prepend"></div>
+        </aside>
+        <!-- for the output. Displays the city name and weather characteristics -->
+        <div class="section cast" id="main">
+            <div id="current">
+              <div class="cityName"></div>
+              <div class="cityNameInfo"></div>
+            </div>
+            
+            <div id= "forecast" class=" hide message is-info">
+              <h1>Weather Forecast</h1>
+              <div class=" weather-app is-centered">
+              </div> 
+            </div>
+        </div>
+
+    </section>
+     
+
+  <!-- jquery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+
+
     <script src="luxon.js"></script>
     
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="./luxon.js"></script>
     <script src="./script.js"></script>
+    <script src="./app.js"></script>
 </body>
 
 </html>

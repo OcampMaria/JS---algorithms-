@@ -46,6 +46,7 @@ h1 {
   
 
 form {
+  background-color: rgba(255, 255, 255, 0);
   margin: 2rem;
   border-radius: 1rem;
 }
@@ -59,3 +60,77 @@ form {
 div{
     padding:10px;
 }
+
+
+
+
+
+/* input search city */
+aside{
+  background-color: rgba(68, 139, 172, 0.637);
+  padding: 2rem;
+  height: 100vh; 
+  color: #000000;
+}
+
+
+/* output. City name and weather characteristics */
+.cast{
+  background-color: white;
+  overflow: hidden;
+}
+
+
+/* Displays the city name and weather characteristics */
+.cast{
+  padding: .5rem .5rem;
+  background-color: #eef6fc;
+  height:100vh;
+}
+
+.cast p{
+ padding-bottom: 2rem;
+}
+/* five-day forecast */
+.weather-app{
+  border-style: solid;
+  border-width: .05rem;
+  border-color: black;
+  padding: 1rem; 
+}
+/* icons */
+img.image {
+  display: unset;
+  position: relative;
+  
+}
+
+.cityweather{
+  line-height: 3rem;
+}
+
+.hide{
+  display: none;
+}
+
+div h1, div.cityweather{
+  padding: .7rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+five-day forecast cards
+.card, .columns{
+  padding: 1rem; 
+}
+
+div.card, .forecast{
+  padding: .5rem;
+}
+
+
+div.columns.is-centered{
+  display: flex;
+  flex-flow: wrap;
+}
+

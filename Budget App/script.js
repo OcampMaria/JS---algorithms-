@@ -26,29 +26,28 @@ const getBudgetAmount = (amount) => {
     }, 3000);
   } else {
     Swal.fire({
-        title: 'Está seguro?',
-        text: "Are you sure you want to add this amount to your budget?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, estoy seguro',
-        cancelButtonText: 'Por favor NO!'
-      }).then((result) => {
-    
-        if (result.isConfirmed) {
+      title: "Está seguro?",
+      text: "Are you sure you want to add this amount to your budget?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí, estoy seguro",
+      cancelButtonText: "Por favor NO!",
+    }).then((result) => {
+      if (result.isConfirmed) {
         //   Swal.fire(
         //     'Vaciado!!',
         //     'Su carrito se vació correctamente.',
         //     'success'
         //   )
-    
-            Toastify({
-                text: 'You added budget amount',
-                duration: 5000
-            }).showToast()
-        }
-      })
+
+        Toastify({
+          text: "You added budget amount",
+          duration: 5000,
+        }).showToast();
+      }
+    });
     budgetAmount.innerText = amount;
     balanceAmount.innerText = amount;
     // expenseForm.style.display = "none";
@@ -59,9 +58,8 @@ const getBudgetAmount = (amount) => {
 
 addForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  
+
   getBudgetAmount(amountInput.value);
-  
 });
 1;
 // End BudgetInput form / start Expense List.
@@ -110,12 +108,10 @@ expForm.addEventListener("submit", (e) => {
   e.preventDefault();
   addExpenses(expName.value, expNumber.value);
   Toastify({
-
     text: "Added an expense",
-    
-    duration: 3000
-    
-    }).showToast();
+
+    duration: 3000,
+  }).showToast();
 });
 
 // display expenses
@@ -124,11 +120,10 @@ const btn1 = document.querySelector("#btn1");
 const btn2 = document.querySelector("#btn2");
 const simulador = document.getElementById("simulador");
 // LUXON
-const { DateTime } = luxon
+const { DateTime } = luxon;
 // const DateTime = luxon.DateTime
-const  dt = DateTime.local(2022, 4, 15)
-const now = DateTime.now()
-
+const dt = DateTime.local(2022, 4, 15);
+const now = DateTime.now();
 
 function displayExp(details) {
   details.forEach((details) => {
@@ -140,11 +135,14 @@ function displayExp(details) {
       <h3> Amount: ${details.number}</h3> 
       <h3> date: ${now.toLocaleString(DateTime.TIME_WITH_LONG_OFFSET)}</h3> 
       
-
       <div id="edite_delete">
         <p>
-          <button id="${details.id}" onclick="editExpDetails(${details.id})"> <img src="./edit.png" width="15" alt=""  /></button> 
-          <button id="${details.id}" onclick="delExpenseDetails(${details.id})"><img src="./trash.png" width="15" alt="" /></button>
+          <button id="${details.id}" onclick="editExpDetails(${
+      details.id
+    })"> <img src="./edit.png" width="15" alt=""  /></button> 
+          <button id="${details.id}" onclick="delExpenseDetails(${
+      details.id
+    })"><img src="./trash.png" width="15" alt="" /></button>
         </p>
       </div>
       `;
@@ -177,13 +175,6 @@ function editExpDetails(id) {
   editForm.style.display = "We block";
   details.findIndex((item) => {
     if (item.id === id) {
-        
-
-
-
-
-      
-
       editExpName.value = item.name;
       editExpNumber.value = item.number;
       saveEdit.children[2].id = item.id;
@@ -209,40 +200,30 @@ saveEdit.addEventListener("submit", (e) => {
   getExpValue(editExpName.value, editExpNumber.value, saveEdit.children[2].id);
 });
 
+const btnSwall = document.querySelector("#alert");
 
+btnSwall.addEventListener("click", () => {
+  Swal.fire({
+    title: "Está seguro?",
+    text: "Está a punto de vaciar el carrito. Esta acción no es reversible",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Sí, estoy seguro",
+    cancelButtonText: "Por favor NO!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      //   Swal.fire(
+      //     'Vaciado!!',
+      //     'Su carrito se vació correctamente.',
+      //     'success'
+      //   )
 
-const btnSwall = document.querySelector('#alert')
-
-
-
-btnSwall.addEventListener('click', () => {
-
-    Swal.fire({
-        title: 'Está seguro?',
-        text: "Está a punto de vaciar el carrito. Esta acción no es reversible",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, estoy seguro',
-        cancelButtonText: 'Por favor NO!'
-      }).then((result) => {
-
-        if (result.isConfirmed) {
-        //   Swal.fire(
-        //     'Vaciado!!',
-        //     'Su carrito se vació correctamente.',
-        //     'success'
-        //   )
-
-            Toastify({
-                text: 'Se vació el carrito',
-                duration: 5000
-            }).showToast()
-        }
-      })
-
-})
-
-
-
+      Toastify({
+        text: "Se vació el carrito",
+        duration: 5000,
+      }).showToast();
+    }
+  });
+});
