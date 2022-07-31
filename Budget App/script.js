@@ -25,34 +25,16 @@ const getBudgetAmount = (amount) => {
       amountInput.style.border = "1px solid gray";
     }, 3000);
   } else {
-    Swal.fire({
-      title: "Está seguro?",
-      text: "Are you sure you want to add this amount to your budget?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Sí, estoy seguro",
-      cancelButtonText: "Por favor NO!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        //   Swal.fire(
-        //     'Vaciado!!',
-        //     'Su carrito se vació correctamente.',
-        //     'success'
-        //   )
-
-        Toastify({
-          text: "You added budget amount",
-          duration: 5000,
-        }).showToast();
-      }
-    });
+    
     budgetAmount.innerText = amount;
     balanceAmount.innerText = amount;
     // expenseForm.style.display = "none";
-    // editForm.style.display = "none";
+    //editForm.style.display = "none";
     amountInput.value = "";
+    Toastify({
+      text: `Your balance is ${amount}`,
+      duration: 5000,
+    }).showToast();
   }
 };
 
@@ -98,20 +80,22 @@ function addExpenses(name, number) {
     details.push(userExp);
     console.log(details);
     displayExp(details);
+
+    localStorage.setItem('details', JSON.stringify(details))
+    console.log(details, "details local");
+
     id++;
     expName.value = "";
     expNumber.value = "";
+
   }
 }
 
 expForm.addEventListener("submit", (e) => {
   e.preventDefault();
   addExpenses(expName.value, expNumber.value);
-  Toastify({
-    text: "Added an expense",
-
-    duration: 3000,
-  }).showToast();
+  
+  
 });
 
 // display expenses
@@ -126,29 +110,41 @@ const dt = DateTime.local(2022, 4, 15);
 const now = DateTime.now();
 
 function displayExp(details) {
+  simulador.innerHTML = '';
+  
   details.forEach((details) => {
     const div = document.createElement("div");
     div.innerHTML = `
       
       <h2> Expenses Summary </h2>
+      <h3> Expense No: ${details.id +1}</h3> 
       <h3> Name: ${details.name}</h3> 
       <h3> Amount: ${details.number}</h3> 
       <h3> date: ${now.toLocaleString(DateTime.TIME_WITH_LONG_OFFSET)}</h3> 
       
       <div id="edite_delete">
         <p>
-          <button id="${details.id}" onclick="editExpDetails(${
-      details.id
-    })"> <img src="./edit.png" width="15" alt=""  /></button> 
-          <button id="${details.id}" onclick="delExpenseDetails(${
-      details.id
-    })"><img src="./trash.png" width="15" alt="" /></button>
+          <button 
+            id="${details.id}" 
+            onclick="editExpDetails(${details.id})"> 
+            <img src="../assets/edit.png" width="15" alt=""/>
+          </button> 
+          <button 
+            id="${details.id}" 
+              onclick="delExpenseDetails(${details.id})">
+              <img src="../assets/trash.png" width="15" alt="" />
+          </button>
         </p>
       </div>
       `;
 
     simulador.append(div);
     console.log("done append");
+    Toastify({
+      text: `Added ${details.name}: $${details.number} to total expenses`,
+  
+      duration: 3000,
+    }).showToast();
   });
   calcExpenses();
 }
@@ -165,20 +161,21 @@ function calcExpenses() {
 
 function updateBalance() {
   balanceAmount.innerText =
-    parseInt(budgetAmount.innerText) - parseInt(expensesAmount.innerText);
+  parseInt(budgetAmount.innerText) - parseInt(expensesAmount.innerText);
 }
 
 //   edit expenses
 function editExpDetails(id) {
-  expenseForm.style.display = "none";
+  console.log(id)
+  //expenseForm.style.display = "none";
   budgetform.style.display = "none";
-  editForm.style.display = "We block";
+  //editForm.style.display = "We block";
   details.findIndex((item) => {
     if (item.id === id) {
       editExpName.value = item.name;
       editExpNumber.value = item.number;
       saveEdit.children[2].id = item.id;
-      modal.style.display = "block";
+      //modal.style.display = "block";
     }
   });
 }
@@ -200,30 +197,11 @@ saveEdit.addEventListener("submit", (e) => {
   getExpValue(editExpName.value, editExpNumber.value, saveEdit.children[2].id);
 });
 
-const btnSwall = document.querySelector("#alert");
 
-btnSwall.addEventListener("click", () => {
-  Swal.fire({
-    title: "Está seguro?",
-    text: "Está a punto de vaciar el carrito. Esta acción no es reversible",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Sí, estoy seguro",
-    cancelButtonText: "Por favor NO!",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      //   Swal.fire(
-      //     'Vaciado!!',
-      //     'Su carrito se vació correctamente.',
-      //     'success'
-      //   )
-
-      Toastify({
-        text: "Se vació el carrito",
-        duration: 5000,
-      }).showToast();
-    }
-  });
-});
+//delete exppense
+function delExpenseDetails(id) {
+  let index = details.findIndex((item) => item.id === id);
+  details.splice(index, 1);
+  displayExp(details);
+  localStorage.setItem('details', JSON.stringify(details))
+}
