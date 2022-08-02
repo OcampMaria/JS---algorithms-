@@ -15,6 +15,13 @@ const addForm = document.querySelector("#addForm");
 const budgetAmount = document.querySelector("#budgetAmount");
 const balanceAmount = document.querySelector("#balanceAmount");
 
+
+const editForm = document.getElementById("editForm");
+const saveEdit = document.getElementById("saveEdit");
+const editExpValue = document.getElementById("editExpValue");
+const editExpNumber = document.getElementById("editExpNumber");
+
+
 const getBudgetAmount = (amount) => {
   if (!amount) {
     amountInput.style.border = "1px solid #b80c09";
@@ -164,26 +171,48 @@ function updateBalance() {
   parseInt(budgetAmount.innerText) - parseInt(expensesAmount.innerText);
 }
 
+const modal = document.getElementById("myModal");
+
+
 //   edit expenses
 function editExpDetails(id) {
+  
+  Swal.fire({
+    title: 'Do you want to edit your Expense?',
+    showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: 'yes',
+    denyButtonText: `no`,
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+
+    
+    if (result.isConfirmed) {
+      details.findIndex((item) => {
+        if (item.id === id) {
+          editExpName.value = item.name;
+          editExpNumber.value = item.number;
+          saveEdit.children[2].id = item.id;
+          
+        }
+      });
+
+
+
+
+
+    } else if (result.isDenied) {
+      Swal.fire('Changes are not saved', '', 'info')
+    } 
+  })
+
   console.log(id)
   //expenseForm.style.display = "none";
-  budgetform.style.display = "none";
+  //budgetform.style.display = "none";
   //editForm.style.display = "We block";
-  details.findIndex((item) => {
-    if (item.id === id) {
-      editExpName.value = item.name;
-      editExpNumber.value = item.number;
-      saveEdit.children[2].id = item.id;
-      //modal.style.display = "block";
-    }
-  });
+  
 }
 
-const editForm = document.getElementById("editForm");
-const saveEdit = document.getElementById("saveEdit");
-const editExpValue = document.getElementById("editExpValue");
-const editExpNumber = document.getElementById("editExpNumber");
 
 function getExpValue(editExpName, editExpNumber, id) {
   edited = details.findIndex((obj) => obj.id == id);
@@ -205,3 +234,11 @@ function delExpenseDetails(id) {
   displayExp(details);
   localStorage.setItem('details', JSON.stringify(details))
 }
+
+
+
+
+
+
+
+

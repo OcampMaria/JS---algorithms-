@@ -43,6 +43,7 @@ h1 {
 }
 
 
+
   
 
 form {
@@ -59,6 +60,22 @@ form {
 
 div{
     padding:10px;
+}
+
+
+
+
+/* .display{
+  display: none
+} */
+
+.form-popup {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
 }
 
 
